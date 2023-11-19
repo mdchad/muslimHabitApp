@@ -1,13 +1,16 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
+import { HomeIcon, icons, ListIcon } from "lucide-react-native";
 import { Pressable, StyleSheet } from 'react-native';
 
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={styles.tabBarIcon} {...props} />;
-}
+// function TabBarIcon(props: {
+//   name: React.ComponentProps<typeof FontAwesome>['name'];
+//   color: string;
+// }) {
+//   const LucideIcon = icons[props.name];
+//
+//   return <LucideIcon color={props.color} size={24} />;
+// }
 
 export default function TabLayout() {
   return (
@@ -18,8 +21,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Home',
+          tabBarIcon: ({ color }) => <HomeIcon size={24} color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -39,8 +42,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Explore',
+          tabBarIcon: ({ color }) => <ListIcon size={24} color={color} />,
         }}
       />
     </Tabs>

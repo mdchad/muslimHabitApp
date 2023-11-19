@@ -1,5 +1,6 @@
 import { Text, View } from 'react-native';
 
+import CalendarApp from '../../components/calendar';
 import EditScreenInfo from '../../components/edit-screen-info';
 
 export default function TabOneScreen() {
