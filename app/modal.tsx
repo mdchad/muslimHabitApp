@@ -1,21 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { Platform, Text, View } from 'react-native';
-
-import EditScreenInfo from '../components/edit-screen-info';
+import { Platform, Pressable, Text, View } from "react-native";
+import { Link } from "expo-router";
 
 export default function ModalScreen() {
   return (
     <View className={styles.container}>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-      <Text className={styles.title}>Modal</Text>
-      <View className={styles.separator} />
-      <EditScreenInfo path="app/modal.tsx" />
+      <View className="flex flex-row items-center justify-between m-2">
+        <Link href="../" asChild>
+          <Pressable className="">
+            <Text className="text-lg">Cancel</Text>
+          </Pressable>
+        </Link>
+        <Text className={styles.title}>New Habit</Text>
+        <Text className="text-lg opacity-50">Save</Text>
+      </View>
     </View>
   );
 }
 
 const styles = {
-  container: `items-center flex-1 justify-center`,
+  container: `flex-1 m-2`,
   separator: `h-[1px] my-7 w-4/5 bg-gray-200`,
-  title: `text-xl font-bold`,
+  title: `text-xl font-semibold text-center`,
 };
