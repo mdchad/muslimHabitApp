@@ -1,13 +1,12 @@
-import { useMemo, useState } from "react";
-import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import { format, getHours } from 'date-fns';
+import * as Haptics from 'expo-haptics';
+import { Link } from 'expo-router';
+import { PlusCircle } from 'lucide-react-native';
+import { useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Calendar from '../../components/calendar';
-import EditScreenInfo from '../../components/edit-screen-info';
-import { format, getHours } from "date-fns";
-import { PlusCircle } from "lucide-react-native";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Link } from "expo-router";
 
 export default function TabOneScreen() {
   const [selectedDate, setSelectedDate] = useState(format(new Date(), 'yyyy-MM-dd'));
@@ -29,17 +28,14 @@ export default function TabOneScreen() {
         <View className={styles.header}>
           <Text className={styles.title}>Today</Text>
           <Link href="/modal" asChild>
-            <TouchableOpacity>
-              <PlusCircle color={'black'} size={26}/>
+            <TouchableOpacity
+              onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}>
+              <PlusCircle color="black" size={26} />
             </TouchableOpacity>
           </Link>
-          {/*<TouchableOpacity>*/}
-          {/*</TouchableOpacity>*/}
         </View>
         {/*<Text className={styles.title}>{greeting}, Irsyad</Text>*/}
-        {/*<View className={styles.separator} />*/}
         <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
-        {/*<EditScreenInfo path="app/(tabs)/index.tsx" />*/}
       </View>
     </SafeAreaView>
   );

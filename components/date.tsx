@@ -1,5 +1,5 @@
 import { format, isToday, parseISO } from 'date-fns';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, Pressable } from 'react-native';
 
 const Date = ({ date, onSelectDate, selected, index }) => {
   // Parse the ISO date string
@@ -15,7 +15,7 @@ const Date = ({ date, onSelectDate, selected, index }) => {
   const fullDate = format(parsedDate, 'yyyy-MM-dd');
 
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={() => onSelectDate(fullDate)}
       className={`rounded-xl ${
         index === 0 ? 'py-4 mr-4' : 'p-4'
@@ -35,7 +35,7 @@ const Date = ({ date, onSelectDate, selected, index }) => {
           {dayNumber}
         </Text>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

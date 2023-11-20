@@ -10,6 +10,7 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="modal" options={{ presentation: 'modal', headerShown: false }} />
+      <Stack.Screen name="modal2" options={{ presentation: 'modal', headerShown: false }} />
     </Stack>
   );
 }
