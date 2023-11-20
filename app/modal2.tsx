@@ -1,23 +1,68 @@
 import { Link, useGlobalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Platform, Pressable, Text, View } from 'react-native';
+import { Platform, Pressable, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function ModalScreen() {
   const params = useGlobalSearchParams();
 
   return (
-    <View className={styles.container}>
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-      <View className="flex flex-row items-center justify-between m-2">
-        <Link href="../" asChild>
-          <Pressable className="">
-            <Text className="text-lg">Cancel</Text>
-          </Pressable>
-        </Link>
-        <Text className={styles.title}>New Habit11 {params.slug}</Text>
-        <Text className="text-lg opacity-50">Save</Text>
+    <ScrollView className="flex-1 bg-stone-100">
+      <View className="p-4">
+        <View className="flex-row justify-between items-center mb-10">
+          <Link href="../" asChild>
+            <TouchableOpacity onPress={() => {}}>
+              <Text className="text-lg">Cancel</Text>
+            </TouchableOpacity>
+          </Link>
+          <Text className="text-xl font-semibold">New Habit</Text>
+          <TouchableOpacity onPress={() => {}}>
+            <Text className="text-lg">Save</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/*<View className="items-center my-5">*/}
+        {/*  <View className="rounded-full bg-pink-200 p-6">*/}
+        {/*    /!*<Image source={{ uri: 'path_to_your_emoji_image' }} className="w-20 h-20" />*!/*/}
+        {/*  </View>*/}
+        {/*  <View className="flex-row flex-wrap justify-center mt-5">*/}
+        {/*    /!* Color options would go here, mapping through an array of color choices *!/*/}
+        {/*    /!* Placeholder for color circles *!/*/}
+        {/*    {Array.from({ length: 12 }).map((_, index) => (*/}
+        {/*      <TouchableOpacity key={index} className="h-10 w-10 rounded-full m-1 bg-gray-300" />*/}
+        {/*    ))}*/}
+        {/*  </View>*/}
+        {/*</View>*/}
+
+        <View className="space-y-8">
+          <View>
+            <Text className="ml-3 mb-1 text-gray-500">NAME</Text>
+            <TextInput
+              placeholder="Name"
+              value={params?.slug}
+              style={{ fontSize: 18 }}
+              className="bg-white py-3 px-3 rounded-lg"
+            />
+          </View>
+          <View>
+            <Text className="ml-3 mb-1 text-gray-500">DESCRIPTION</Text>
+            <TextInput
+              style={{ fontSize: 18 }}
+              className="bg-white py-3 px-3 rounded-lg"
+            />
+          </View>
+          <View className="flex-row justify-between items-center my-5">
+            <Text className="text-lg">Interval</Text>
+            <TouchableOpacity onPress={() => {}}>
+              <Text className="text-lg">Every day</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View className="my-5">
+          <Text className="text-blue-500">More features soon</Text>
+          <Text className="text-sm text-gray-500">The app is in active development phase. Richer interval options, Reminders, etc., will be added over time.</Text>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

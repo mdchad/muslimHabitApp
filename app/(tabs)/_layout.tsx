@@ -1,16 +1,5 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { HomeIcon, icons, ListIcon } from "lucide-react-native";
-import { Pressable, StyleSheet } from 'react-native';
-
-// function TabBarIcon(props: {
-//   name: React.ComponentProps<typeof FontAwesome>['name'];
-//   color: string;
-// }) {
-//   const LucideIcon = icons[props.name];
-//
-//   return <LucideIcon color={props.color} size={24} />;
-// }
+import { Tabs } from 'expo-router';
+import { BookOpenIcon, HomeIcon, LibraryBigIcon } from "lucide-react-native";
 
 export default function TabLayout() {
   return (
@@ -30,18 +19,16 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Discover',
-          tabBarIcon: ({ color }) => <ListIcon size={24} color={color} />,
+          tabBarIcon: ({ color }) => <LibraryBigIcon size={24} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="three"
+        options={{
+          title: 'Journal',
+          tabBarIcon: ({ color }) => <BookOpenIcon size={24} color={color} />,
         }}
       />
     </Tabs>
   );
 }
-
-const styles = StyleSheet.create({
-  headerRight: {
-    marginRight: 15,
-  },
-  tabBarIcon: {
-    marginBottom: -3,
-  },
-});

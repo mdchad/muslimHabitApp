@@ -34,7 +34,6 @@ export default function TabOneScreen() {
             </TouchableOpacity>
           </Link>
         </View>
-        {/*<Text className={styles.title}>{greeting}, Irsyad</Text>*/}
         <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
       </View>
     </SafeAreaView>
