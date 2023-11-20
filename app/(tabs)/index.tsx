@@ -1,15 +1,17 @@
 import { format, getHours } from 'date-fns';
 import * as Haptics from 'expo-haptics';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { PlusCircle } from 'lucide-react-native';
 import { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Calendar from '../../components/calendar';
 
 export default function TabOneScreen() {
   const [selectedDate, setSelectedDate] = useState(format(new Date(), 'yyyy-MM-dd'));
+
+  const list = [{ name: 'Solat', slug: 'solat' }];
 
   // const greeting = useMemo(() => {
   //   const currentHour = getHours(new Date());
@@ -35,6 +37,20 @@ export default function TabOneScreen() {
           </Link>
         </View>
         <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
+        <FlatList
+          data={list}
+          renderItem={({ item, index }) => (
+            <View className="flex flex-row bg-stone-200 p-4 mb-4 rounded-xl items-center justify-between">
+              <View>
+                <Text className="text-lg font-semibold">{item.name}</Text>
+                <Text className="text-md text-gray-600">Every day</Text>
+              </View>
+              <View>
+                <Text>1/5</Text>
+              </View>
+            </View>
+          )}
+        />
       </View>
     </SafeAreaView>
   );

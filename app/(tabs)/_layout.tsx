@@ -16,8 +16,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="discover"
         options={{
+          headerShown: false,
           title: 'Discover',
           tabBarIcon: ({ color }) => <LibraryBigIcon size={24} color={color} />,
         }}
