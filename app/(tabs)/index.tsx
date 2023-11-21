@@ -52,6 +52,7 @@ export default function TabOneScreen() {
           )}
         />
       </View>
+      <Link href="/paywall-modal">Paywall</Link>
     </SafeAreaView>
   );
 }
