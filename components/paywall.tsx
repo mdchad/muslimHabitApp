@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Platform, Text, View } from 'react-native';
-import Purchases, { PurchasesOffering } from 'react-native-purchases';
+import React from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { PurchasesPackage } from 'react-native-purchases';
+
+import { useRevenueCat } from '../providers/RevenueCatProvider';
 
 const APIKeys = {
   apple: 'appl_ZbrCDDGMynmPzkCEpbniWjlKOGG',
@@ -8,35 +10,33 @@ const APIKeys = {
 };
 
 export default function Paywall() {
-  const [currentOffering, setCurrentOffering] = useState<PurchasesOffering | null>(null);
+  const { user, packages, purchasePackage, restorePermissions } = useRevenueCat();
 
-  useEffect(() => {
-    const setup = async () => {
-      // if (Platform.OS == "android") {
-      //   await Purchases.configure({ apiKey: APIKeys.google });
-      // } else {
-      await Purchases.configure({ apiKey: APIKeys.apple });
-      // }
+  const onPurchase = (pack: PurchasesPackage) => {
+    // Purchase the package
+    purchasePackage!(pack);
+  };
 
-      const offerings = await Purchases.getOfferings();
-      setCurrentOffering(offerings.current);
-    };
-
-
-    setup().catch(console.log);
-  }, []);
-
-  if (!currentOffering) {
-    return <Text>'Loading...';</Text>
-  } else {
-    return (
-      <View>
-        <Text>Current Offering: {currentOffering.identifier}</Text>
-        <Text>Package Count: {currentOffering.availablePackages.length}</Text>
-        {currentOffering.availablePackages.map((pkg, i) => {
-          return <Text key={i}>{pkg.product.identifier}</Text>;
-        })}
-      </View>
-    );
-  }
+  return (
+    <View className="mx-4 space-y-4">
+      {/*<Text>Current Offering: {currentOffering.identifier}</Text>*/}
+      {/*<Text>Package Count: {currentOffering.availablePackages.length}</Text>*/}
+      {packages.map((pkg, i) => {
+        return (
+          <TouchableOpacity
+            onPress={() => onPurchase(pkg)}
+            className="flex flex-row justify-between"
+            key={pkg.identifier}>
+            <View>
+              <Text>{pkg.product.title}</Text>
+              <Text>{pkg.product.description}</Text>
+            </View>
+            <View>
+              <Text>{pkg.product.priceString}</Text>
+            </View>
+          </TouchableOpacity>
+        );
+      })}
+    </View>
+  );
 }

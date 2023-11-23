@@ -1,7 +1,7 @@
-import { Link, useGlobalSearchParams } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { Platform, Pressable, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
-import Paywall from "../components/paywall";
+import { Link } from 'expo-router';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+
+import Paywall from '../components/paywall';
 
 export default function ModalScreen() {
   return (
@@ -36,9 +36,3 @@ export default function ModalScreen() {
     </ScrollView>
   );
 }
-
-const styles = {
-  container: `flex-1 m-2`,
-  separator: `h-[1px] my-7 w-4/5 bg-gray-200`,
-  title: `text-xl font-semibold text-center`,
-};
