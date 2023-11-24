@@ -41,7 +41,6 @@
         "NSRemindersFullAccessUsageDescription": "Allow $(PRODUCT_NAME) to access your reminders"
       },
       "bundleIdentifier": "com.mdchad.muslimHabitApp",
-      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {

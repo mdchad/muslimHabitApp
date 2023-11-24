@@ -1,12 +1,11 @@
-// Provide RevenueCat functions to our app
 import { createContext, useContext, useEffect, useState } from 'react';
 import { Platform } from 'react-native';
-import Purchases, { CustomerInfo, LOG_LEVEL, PurchasesPackage } from 'react-native-purchases';
+import Purchases, { LOG_LEVEL, PurchasesPackage, CustomerInfo } from 'react-native-purchases';
 
-// Use your RevenueCat API keys
+// Use keys from you RevenueCat API Keys
 const APIKeys = {
   apple: 'appl_ZbrCDDGMynmPzkCEpbniWjlKOGG',
-  google: '',
+  google: 'goog_OpInrlibmrJNRjqlllHLbTJTPIo',
 };
 
 interface RevenueCatProps {
@@ -24,11 +23,7 @@ export interface UserState {
 
 const RevenueCatContext = createContext<RevenueCatProps | null>(null);
 
-// Export context for easy usage
-export const useRevenueCat = () => {
-  return useContext(RevenueCatContext) as RevenueCatProps;
-};
-
+// Provide RevenueCat functions to our app
 export const RevenueCatProvider = ({ children }: any) => {
   const [user, setUser] = useState<UserState>({ cookies: 0, items: [], pro: false });
   const [packages, setPackages] = useState<PurchasesPackage[]>([]);
@@ -44,7 +39,8 @@ export const RevenueCatProvider = ({ children }: any) => {
       setIsReady(true);
 
       // Use more logging during debug if want!
-      Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
+      // Purchases.setLogLevel(LOG_LEVEL.VERBOSE);
+      Purchases.setLogLevel(LOG_LEVEL.DEBUG);
 
       // Listen for customer updates
       Purchases.addCustomerInfoUpdateListener(async (info) => {
@@ -60,6 +56,7 @@ export const RevenueCatProvider = ({ children }: any) => {
   // Load all offerings a user can (currently) purchase
   const loadOfferings = async () => {
     const offerings = await Purchases.getOfferings();
+    console.log(JSON.stringify(offerings.current, null, 2))
     if (offerings.current) {
       setPackages(offerings.current.availablePackages);
     }
@@ -86,21 +83,20 @@ export const RevenueCatProvider = ({ children }: any) => {
 
   // Purchase a package
   const purchasePackage = async (pack: PurchasesPackage) => {
-    console.log(pack)
     try {
-      await Purchases.purchasePackage(pack);
+      const oi = await Purchases.purchasePackage(pack);
 
       // Directly add our consumable product
       if (pack.product.identifier === 'rca_299_consume') {
         setUser({ ...user, cookies: (user.cookies += 5) });
       }
     } catch (e: any) {
-      console.log('Error', e)
+      console.log(e)
       if (!e.userCancelled) {
         alert(e);
       }
     } finally {
-      console.log('whereeeee')
+      console.log('finish')
     }
   };
 
@@ -121,4 +117,9 @@ export const RevenueCatProvider = ({ children }: any) => {
   if (!isReady) return <></>;
 
   return <RevenueCatContext.Provider value={value}>{children}</RevenueCatContext.Provider>;
+};
+
+// Export context for easy usage
+export const useRevenueCat = () => {
+  return useContext(RevenueCatContext) as RevenueCatProps;
 };
