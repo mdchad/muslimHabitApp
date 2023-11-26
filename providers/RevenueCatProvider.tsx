@@ -56,7 +56,6 @@ export const RevenueCatProvider = ({ children }: any) => {
   // Load all offerings a user can (currently) purchase
   const loadOfferings = async () => {
     const offerings = await Purchases.getOfferings();
-    console.log(JSON.stringify(offerings.current, null, 2))
     if (offerings.current) {
       setPackages(offerings.current.availablePackages);
     }
