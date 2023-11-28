@@ -52,7 +52,7 @@ export default function TabOneScreen() {
         <FlatList
           data={list}
           renderItem={({ item, index }) => (
-            <View className="flex flex-row bg-stone-200/50 p-4 mb-4 rounded-xl items-center justify-between">
+            <View className="flex flex-row bg-stone-200/70 p-4 mb-4 rounded-xl items-center justify-between">
               <View>
                 <Text className="text-lg font-semibold">{item.name}</Text>
                 <Text className="text-md text-gray-600">Every day</Text>
@@ -63,24 +63,8 @@ export default function TabOneScreen() {
             </View>
           )}
         />
+        <Link href="/paywall-modal">Paywall</Link>
       </View>
-      {/*<View style={styles1.container}>*/}
-      {/*  {packages.map((pack) => (*/}
-      {/*    <TouchableOpacity*/}
-      {/*      key={pack.identifier}*/}
-      {/*      onPress={() => onPurchase(pack)}*/}
-      {/*      style={styles1.button}>*/}
-      {/*      <View style={styles1.text}>*/}
-      {/*        <Text>{pack.product.title}</Text>*/}
-      {/*        <Text style={styles1.desc}>{pack.product.description}</Text>*/}
-      {/*      </View>*/}
-      {/*      <View style={styles1.price}>*/}
-      {/*        <Text>{pack.product.priceString}</Text>*/}
-      {/*      </View>*/}
-      {/*    </TouchableOpacity>*/}
-      {/*  ))}*/}
-      {/*</View>*/}
-      {/*<Progress />*/}
     </SafeAreaView>
   );
 }
@@ -92,33 +76,3 @@ const styles = {
   title: `text-3xl font-bold mr-2`,
   description: `text-lg text-zinc-500`,
 };
-
-const styles1 = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    marginVertical: 6,
-  },
-  button: {
-    padding: 12,
-    borderRadius: 4,
-    margin: 4,
-    flexDirection: 'row',
-    width: '100%',
-    backgroundColor: '#fff',
-  },
-  text: {
-    flexGrow: 1,
-  },
-  desc: {
-    color: '#B6B7C0',
-    paddingVertical: 4,
-  },
-  price: {
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderRadius: 4,
-    paddingHorizontal: 8,
-    borderColor: '#EA3C4A',
-  },
-});

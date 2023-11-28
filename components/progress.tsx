@@ -1,7 +1,7 @@
 // Inspiration: https://dribbble.com/shots/16056812-NFT-Collections-App
 import Constants from 'expo-constants';
 import * as React from 'react';
-import { StatusBar, StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { StyleProp, Text, View, ViewStyle } from 'react-native';
 import Animated, {
   useAnimatedProps,
   useSharedValue,
