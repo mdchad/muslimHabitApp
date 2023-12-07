@@ -29,7 +29,7 @@ export default function ModalScreen() {
           data={list}
           renderItem={({ item, index }) => (
             <TouchableOpacity
-              className="bg-stone-50 p-4 mb-4 rounded-xl"
+              className="bg-stone-200/40 p-4 mb-4 rounded-xl"
               onPress={() => router.push({ pathname: '/modal2', params: { slug: item.slug } })}>
               <Text className="text-lg font-semibold">{item.name}</Text>
             </TouchableOpacity>

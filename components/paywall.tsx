@@ -1,42 +1,71 @@
-import React, { useEffect, useState } from 'react';
-import { Platform, Text, View } from 'react-native';
-import Purchases, { PurchasesOffering } from 'react-native-purchases';
+import React from 'react';
+import { Text, TouchableOpacity, View, StyleSheet, ScrollView } from 'react-native';
+import { PurchasesPackage } from 'react-native-purchases';
 
-const APIKeys = {
-  apple: 'appl_ZbrCDDGMynmPzkCEpbniWjlKOGG',
-  google: 'your_revenuecat_google_api_key',
-};
+import { useRevenueCat } from '../providers/RevenueCatProvider';
 
-export default function Paywall() {
-  const [currentOffering, setCurrentOffering] = useState<PurchasesOffering | null>(null);
+function Paywall() {
+  const { user, packages, purchasePackage, restorePermissions } = useRevenueCat();
 
-  useEffect(() => {
-    const setup = async () => {
-      // if (Platform.OS == "android") {
-      //   await Purchases.configure({ apiKey: APIKeys.google });
-      // } else {
-      await Purchases.configure({ apiKey: APIKeys.apple });
-      // }
+  const onPurchase = (pack: PurchasesPackage) => {
+    // Purchase the package
+    purchasePackage!(pack);
+  };
 
-      const offerings = await Purchases.getOfferings();
-      setCurrentOffering(offerings.current);
-    };
-
-
-    setup().catch(console.log);
-  }, []);
-
-  if (!currentOffering) {
-    return <Text>'Loading...';</Text>
-  } else {
-    return (
-      <View>
-        <Text>Current Offering: {currentOffering.identifier}</Text>
-        <Text>Package Count: {currentOffering.availablePackages.length}</Text>
-        {currentOffering.availablePackages.map((pkg, i) => {
-          return <Text key={i}>{pkg.product.identifier}</Text>;
-        })}
+  return (
+    <ScrollView>
+      {/* Display the packages */}
+      <View style={styles.container}>
+        {packages.map((pack) => (
+          <TouchableOpacity
+            key={pack.identifier}
+            onPress={() => onPurchase(pack)}
+            style={styles.button}>
+            <View style={styles.text}>
+              <Text>{pack.product.title}</Text>
+              <Text style={styles.desc}>{pack.product.description}</Text>
+            </View>
+            <View style={styles.price}>
+              <Text>{pack.product.priceString}</Text>
+            </View>
+          </TouchableOpacity>
+        ))}
       </View>
-    );
-  }
+
+      {/* Display the user state */}
+      {/*<User user={user} />*/}
+    </ScrollView>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginVertical: 6,
+  },
+  button: {
+    padding: 12,
+    borderRadius: 4,
+    margin: 4,
+    flexDirection: 'row',
+    width: '100%',
+    backgroundColor: '#fff',
+  },
+  text: {
+    flexGrow: 1,
+  },
+  desc: {
+    color: '#B6B7C0',
+    paddingVertical: 4,
+  },
+  price: {
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderRadius: 4,
+    paddingHorizontal: 8,
+    borderColor: '#EA3C4A',
+  },
+});
+
+export default Paywall;
