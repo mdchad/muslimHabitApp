@@ -37,16 +37,16 @@ export default function TabOneScreen() {
     <SafeAreaView className="flex-1">
       <View className={styles.container}>
         <View className={styles.header}>
-          <View className="flex flex-row space-2-4 items-center">
-            <Text className={styles.title}>Today</Text>
+          <Text className={styles.title}>Today</Text>
+          <View className="flex flex-row space-x-2 items-center">
             <Progress />
+            <Link href="/modal" asChild>
+              <TouchableOpacity
+                onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}>
+                <PlusCircle color="black" size={26} />
+              </TouchableOpacity>
+            </Link>
           </View>
-          <Link href="/modal" asChild>
-            <TouchableOpacity
-              onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}>
-              <PlusCircle color="black" size={26} />
-            </TouchableOpacity>
-          </Link>
         </View>
         <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
         <FlatList
@@ -63,7 +63,6 @@ export default function TabOneScreen() {
             </View>
           )}
         />
-        <Link href="/paywall-modal">Paywall</Link>
       </View>
     </SafeAreaView>
   );

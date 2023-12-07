@@ -5,7 +5,7 @@ import { PurchasesPackage } from 'react-native-purchases';
 import { useRevenueCat } from '../providers/RevenueCatProvider';
 
 export default function ModalScreen() {
-  const { purchasePackage, packages } = useRevenueCat();
+  const { purchasePackage, packages, restorePermissions } = useRevenueCat();
   const onPurchase = (pack: PurchasesPackage) => {
     // Purchase the package
     purchasePackage!(pack);
@@ -20,10 +20,10 @@ export default function ModalScreen() {
               <Text className="text-lg">Cancel</Text>
             </TouchableOpacity>
           </Link>
-          <Text className="text-xl font-semibold">New Habit</Text>
-          <TouchableOpacity onPress={() => {}}>
-            <Text className="text-lg">Save</Text>
-          </TouchableOpacity>
+        </View>
+        <View className="mb-4">
+          <Text className="text-3xl font-bold">Unlock Everything</Text>
+          <Text className="text-lg">Don't just track habits</Text>
         </View>
 
         <View style={styles1.container}>
@@ -37,7 +37,7 @@ export default function ModalScreen() {
                 <Text style={styles1.desc}>{pack.product.description}</Text>
               </View>
               <View style={styles1.price}>
-                <Text>{pack.product.priceString}</Text>
+                <Text className="text-white font-bold">{pack.product.priceString}</Text>
               </View>
             </TouchableOpacity>
           ))}
@@ -56,7 +56,7 @@ const styles1 = StyleSheet.create({
   },
   button: {
     padding: 12,
-    borderRadius: 4,
+    borderRadius: 10,
     margin: 4,
     flexDirection: 'row',
     width: '100%',
@@ -71,9 +71,8 @@ const styles1 = StyleSheet.create({
   },
   price: {
     justifyContent: 'center',
-    borderWidth: 1,
-    borderRadius: 4,
+    borderRadius: 10,
     paddingHorizontal: 8,
-    borderColor: '#EA3C4A',
+    backgroundColor: '#739072',
   },
 });
