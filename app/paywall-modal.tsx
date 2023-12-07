@@ -26,18 +26,6 @@ export default function ModalScreen() {
           </TouchableOpacity>
         </View>
 
-        {/*<View className="items-center my-5">*/}
-        {/*  <View className="rounded-full bg-pink-200 p-6">*/}
-        {/*    /!*<Image source={{ uri: 'path_to_your_emoji_image' }} className="w-20 h-20" />*!/*/}
-        {/*  </View>*/}
-        {/*  <View className="flex-row flex-wrap justify-center mt-5">*/}
-        {/*    /!* Color options would go here, mapping through an array of color choices *!/*/}
-        {/*    /!* Placeholder for color circles *!/*/}
-        {/*    {Array.from({ length: 12 }).map((_, index) => (*/}
-        {/*      <TouchableOpacity key={index} className="h-10 w-10 rounded-full m-1 bg-gray-300" />*/}
-        {/*    ))}*/}
-        {/*  </View>*/}
-        {/*</View>*/}
         <View style={styles1.container}>
           {packages.map((pack) => (
             <TouchableOpacity

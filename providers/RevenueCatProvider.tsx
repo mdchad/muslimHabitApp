@@ -83,8 +83,7 @@ export const RevenueCatProvider = ({ children }: any) => {
   // Purchase a package
   const purchasePackage = async (pack: PurchasesPackage) => {
     try {
-      const oi = await Purchases.purchasePackage(pack);
-
+      await Purchases.purchasePackage(pack);
       // Directly add our consumable product
       if (pack.product.identifier === 'rca_299_consume') {
         setUser({ ...user, cookies: (user.cookies += 5) });
