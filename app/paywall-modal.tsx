@@ -1,7 +1,8 @@
 import { Link } from 'expo-router';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { PurchasesPackage } from 'react-native-purchases';
-import { useRevenueCat } from '../providers/RevenueCatProvider';
+
+import { useRevenueCat } from './providers/RevenueCatProvider';
 
 export default function ModalScreen() {
   const { purchasePackage, packages, restorePermissions } = useRevenueCat();
