@@ -1,4 +1,3 @@
-// Inspiration: https://dribbble.com/shots/16056812-NFT-Collections-App
 import Constants from 'expo-constants';
 import * as React from 'react';
 import { StyleProp, Text, View, ViewStyle } from 'react-native';
@@ -37,19 +36,19 @@ type AnimatedDonutProps = {
 };
 
 function AnimatedDonut({
-  width = _width,
-  height = _height,
-  radius = _radius,
-  strokeColor = 'purple',
-  strokeInactiveColor = 'red',
-  strokeWidth = _strokeWidth,
-  current = 2,
-  max = 4,
-  duration = 500,
-  delay = 500,
-  children,
-  style,
-}: AnimatedDonutProps) {
+                         width = _width,
+                         height = _height,
+                         radius = _radius,
+                         strokeColor = 'purple',
+                         strokeInactiveColor = 'red',
+                         strokeWidth = _strokeWidth,
+                         current = 2,
+                         max = 4,
+                         duration = 500,
+                         delay = 500,
+                         children,
+                         style,
+                       }: AnimatedDonutProps) {
   const d = `
     M ${width / 2} 0
     H ${width - radius}

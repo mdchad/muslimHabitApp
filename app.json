@@ -3,7 +3,7 @@
     "name": "Muslim Habit",
     "slug": "muslimHabitApp",
     "version": "1.0.0",
-    "scheme": "muslimHabitApp",
+    "scheme": "muslimhabitapp",
     "web": {
       "bundler": "metro",
       "output": "static",

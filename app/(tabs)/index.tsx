@@ -1,37 +1,18 @@
-import { format, getHours } from 'date-fns';
+import { format } from 'date-fns';
 import * as Haptics from 'expo-haptics';
-import { Link, router } from 'expo-router';
+import { Link } from 'expo-router';
 import { PlusCircle } from 'lucide-react-native';
 import React, { useState } from 'react';
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { PurchasesPackage } from 'react-native-purchases';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Calendar from '../../components/calendar';
 import Progress from '../../components/progress';
-// import { useRevenueCat } from '../../providers/RevenueCatProvider';
 
 export default function TabOneScreen() {
   const [selectedDate, setSelectedDate] = useState(format(new Date(), 'yyyy-MM-dd'));
-  // const { purchasePackage } = useRevenueCat();
 
   const list = [{ name: 'Solat', slug: 'solat' }];
-
-  // const greeting = useMemo(() => {
-  //   const currentHour = getHours(new Date());
-  //   if (currentHour < 12) {
-  //     return 'Good Morning';
-  //   } else if (currentHour < 18) {
-  //     return 'Good Afternoon';
-  //   } else {
-  //     return 'Good Evening';
-  //   }
-  // }, []);
-
-  // const onPurchase = (pack: PurchasesPackage) => {
-  //   // Purchase the package
-  //   purchasePackage!(pack);
-  // };
 
   return (
     <SafeAreaView className="flex-1">

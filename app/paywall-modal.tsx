@@ -2,7 +2,7 @@ import { Link } from 'expo-router';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { PurchasesPackage } from 'react-native-purchases';
 
-import { useRevenueCat } from '../providers/RevenueCatProvider';
+import { useRevenueCat } from './providers/RevenueCatProvider';
 
 export default function ModalScreen() {
   const { purchasePackage, packages, restorePermissions } = useRevenueCat();
@@ -27,20 +27,21 @@ export default function ModalScreen() {
         </View>
 
         <View style={styles1.container}>
-          {packages.map((pack) => (
-            <TouchableOpacity
-              key={pack.identifier}
-              onPress={() => onPurchase(pack)}
-              style={styles1.button}>
-              <View style={styles1.text}>
-                <Text>{pack.product.title}</Text>
-                <Text style={styles1.desc}>{pack.product.description}</Text>
-              </View>
-              <View style={styles1.price}>
-                <Text className="text-white font-bold">{pack.product.priceString}</Text>
-              </View>
-            </TouchableOpacity>
-          ))}
+          {packages.length &&
+            packages?.map((pack) => (
+              <TouchableOpacity
+                key={pack.identifier}
+                onPress={() => onPurchase(pack)}
+                style={styles1.button}>
+                <View style={styles1.text}>
+                  <Text>{pack.product.title}</Text>
+                  <Text style={styles1.desc}>{pack.product.description}</Text>
+                </View>
+                <View style={styles1.price}>
+                  <Text className="text-white font-bold">{pack.product.priceString}</Text>
+                </View>
+              </TouchableOpacity>
+            ))}
         </View>
       </View>
       {/*<Paywall />*/}

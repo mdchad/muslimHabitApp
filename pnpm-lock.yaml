@@ -42,9 +42,6 @@ dependencies:
   expo-sensors:
     specifier: ~12.3.0
     version: 12.3.0(expo@49.0.11)
-  expo-splash-screen:
-    specifier: ~0.20.5
-    version: 0.20.5(expo-modules-autolinking@1.5.1)(expo@49.0.11)
   expo-status-bar:
     specifier: ~1.6.0
     version: 1.6.0
@@ -76,8 +73,8 @@ dependencies:
     specifier: ~2.12.0
     version: 2.12.0(react-native@0.72.6)(react@18.2.0)
   react-native-purchases:
-    specifier: ^7.3.1
-    version: 7.3.1(react-native@0.72.6)(react@18.2.0)
+    specifier: ^7.5.0
+    version: 7.5.0(react-native@0.72.6)(react@18.2.0)
   react-native-reanimated:
     specifier: ~3.3.0
     version: 3.3.0(@babel/core@7.20.2)(@babel/plugin-proposal-nullish-coalescing-operator@7.18.6)(@babel/plugin-proposal-optional-chaining@7.21.0)(@babel/plugin-transform-arrow-functions@7.23.3)(@babel/plugin-transform-shorthand-properties@7.23.3)(@babel/plugin-transform-template-literals@7.23.3)(react-native@0.72.6)(react@18.2.0)
@@ -97,8 +94,8 @@ dependencies:
     specifier: ~0.19.6
     version: 0.19.6(react-dom@18.2.0)(react@18.2.0)
   svg-path-properties:
-    specifier: ^1.2.0
-    version: 1.2.0
+    specifier: ^1.3.0
+    version: 1.3.0
 
 devDependencies:
   '@babel/core':
@@ -2550,8 +2547,8 @@ packages:
       nanoid: 3.3.7
     dev: false
 
-  /@revenuecat/purchases-typescript-internal@7.3.3:
-    resolution: {integrity: sha512-mL0gNFcl0nxWTsy/UaCplPxwAQpeaULAQkm9Y0sEM4xDLa7Re2PHGbC8ysjdGR1+sa+damyNFq33jDupWvewaQ==}
+  /@revenuecat/purchases-typescript-internal@8.1.0:
+    resolution: {integrity: sha512-0oQquGweAFzurCOmEHS9E7LKAk3SjTJoGfFdu9aI3Hdiuneo8DIChvADNVQEQIJtOP09Lt1hpVnvnLjFqIuTDg==}
     dev: false
 
   /@segment/loosely-validate-event@2.0.0:
@@ -8252,13 +8249,13 @@ packages:
       react-native: 0.72.6(@babel/core@7.20.2)(@babel/preset-env@7.23.3)(react@18.2.0)
     dev: false
 
-  /react-native-purchases@7.3.1(react-native@0.72.6)(react@18.2.0):
-    resolution: {integrity: sha512-tiIQoOqaWRt6HxdzTJT4Mv9i+I2YHVdMrPIKIegyIjUnm0avaXwYKLq1fp3BLIoVZjFBPd4OjpAEyMI5aonveA==}
+  /react-native-purchases@7.5.0(react-native@0.72.6)(react@18.2.0):
+    resolution: {integrity: sha512-EGSEWtuP1ZKQzo4ywsfLdOjBVXl4g9MdvgF+zkqKK934GimEEMGZfxsJhf1764SkCz7qbuYu820Nneqb32C0oQ==}
     peerDependencies:
       react: '>= 16.6.3'
       react-native: '>= 0.58.2'
     dependencies:
-      '@revenuecat/purchases-typescript-internal': 7.3.3
+      '@revenuecat/purchases-typescript-internal': 8.1.0
       react: 18.2.0
       react-native: 0.72.6(@babel/core@7.20.2)(@babel/preset-env@7.23.3)(react@18.2.0)
     dev: false
@@ -9199,8 +9196,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svg-path-properties@1.2.0:
-    resolution: {integrity: sha512-MWN8NqNHWwNvYlepv6ui9T9KpRCqogprBuTTDLWztvjSljvhjyNCGJ6EynyAqUwteM5iRXhMl8arGDtcE7eIwQ==}
+  /svg-path-properties@1.3.0:
+    resolution: {integrity: sha512-R1+z37FrqyS3UXDhajNfvMxKI0smuVdedqOo4YbAQUfGqA86B9mGvr2IEXrwjjvGzCtdIKy/ad9N8m6YclaKAw==}
     dev: false
 
   /synckit@0.8.5:
