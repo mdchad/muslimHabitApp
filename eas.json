@@ -6,7 +6,7 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal",
+      "distribution": "internal"
     },
     "development-simulator": {
       "channel": "development-simulator",
@@ -24,7 +24,7 @@
       "ios": {
         "image": "latest"
       },
-      "autoIncrement": true,
+      "autoIncrement": true
     }
   },
   "submit": {
