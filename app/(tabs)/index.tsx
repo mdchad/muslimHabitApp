@@ -4,11 +4,10 @@ import { Link, router } from 'expo-router';
 import { PlusCircle } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { PurchasesPackage } from 'react-native-purchases';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Calendar from '../../components/calendar';
-import Progress from '../../components/progress';
+// import Progress from '../../components/progress';
 // import { useRevenueCat } from '../../providers/RevenueCatProvider';
 
 export default function TabOneScreen() {
@@ -39,7 +38,7 @@ export default function TabOneScreen() {
         <View className={styles.header}>
           <Text className={styles.title}>Today</Text>
           <View className="flex flex-row space-x-2 items-center">
-            <Progress />
+            {/*<Progress />*/}
             <Link href="/modal" asChild>
               <TouchableOpacity
                 onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}>
