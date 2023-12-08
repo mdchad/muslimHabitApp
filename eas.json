@@ -7,7 +7,6 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "channel": "development"
     },
     "development-simulator": {
       "channel": "development-simulator",
@@ -26,7 +25,6 @@
         "image": "latest"
       },
       "autoIncrement": true,
-      "channel": "production"
     }
   },
   "submit": {
