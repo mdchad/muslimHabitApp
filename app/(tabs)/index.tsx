@@ -46,7 +46,7 @@ export default function TabOneScreen() {
                 <Text className="text-md text-gray-600">Every day</Text>
               </View>
               <View>
-                <Text>1/5</Text>
+                <Text className="font-[menlo]">1/5</Text>
               </View>
             </View>
           )}

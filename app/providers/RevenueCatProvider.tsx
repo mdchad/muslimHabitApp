@@ -89,12 +89,12 @@ export const RevenueCatProvider = ({ children }: any) => {
         setUser({ ...user, cookies: (user.cookies += 5) });
       }
     } catch (e: any) {
-      console.log(e)
+      console.log(e);
       if (!e.userCancelled) {
         alert(e);
       }
     } finally {
-      console.log('finish')
+      console.log('finish');
     }
   };
 
