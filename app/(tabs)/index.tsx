@@ -12,10 +12,10 @@ import Progress from '../../components/progress';
 export default function TabOneScreen() {
   const [selectedDate, setSelectedDate] = useState(format(new Date(), 'yyyy-MM-dd'));
 
-  const list = [{ name: 'Solat', slug: 'solat' }];
+  const list = [{ name: 'Solat', slug: 'solat' }, { name: 'Zakat', slug: 'zakat' }];
 
   return (
-    <SafeAreaView className="flex-1">
+    <SafeAreaView className="flex-1 bg-[#fef4e0]">
       <View className={styles.container}>
         <View className={styles.header}>
           <Text className={styles.title}>Today</Text>
@@ -33,7 +33,7 @@ export default function TabOneScreen() {
         <FlatList
           data={list}
           renderItem={({ item, index }) => (
-            <View className="flex flex-row bg-stone-200/70 p-4 mb-4 rounded-xl items-center justify-between">
+            <View className="flex flex-row shadow-sm bg-white p-4 mb-4 rounded-xl items-center justify-between">
               <View>
                 <Text className="text-lg font-semibold">{item.name}</Text>
                 <Text className="text-md text-gray-600">Every day</Text>

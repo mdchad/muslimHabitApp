@@ -25,3 +25,4 @@ const styles = {
   title: `text-xl font-bold`,
   description: `text-lg leading-5 text-gray-400`,
 };
+

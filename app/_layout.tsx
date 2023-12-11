@@ -11,6 +11,7 @@ export default function RootLayout() {
     <RevenueCatProvider>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/*<Stack.Screen name="(onboarding)" options={{ headerShown: false }} />*/}
         <Stack.Screen name="modal" options={{ presentation: 'modal', headerShown: false }} />
         <Stack.Screen name="modal2" options={{ presentation: 'modal', headerShown: false }} />
         <Stack.Screen name="paywall-modal" options={{ presentation: 'modal', headerShown: false }} />

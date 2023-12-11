@@ -6,6 +6,12 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: 'black',
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          paddingVertical: 5,
+          borderWidth: 0,
+          borderColor: 'transparent',
+        },
       }}>
       <Tabs.Screen
         name="index"

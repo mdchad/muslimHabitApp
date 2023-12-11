@@ -22,15 +22,15 @@ const Date = ({ date, onSelectDate, selected, index }) => {
       } h-[90px] width-[80px] space-y-1 items-center`}>
       <Text
         className={`font-semibold text-lg ${
-          selected === fullDate ? 'text-black' : 'text-zinc-300'
+          selected === fullDate ? 'text-[#191101]' : 'text-[#9f6c05]/50'
         }`}>
         {day}
       </Text>
       {/*<View style={{ height: 10 }} />*/}
-      <View className={`${selected === fullDate ? 'bg-stone-200' : ''} p-2 rounded-xl`}>
+      <View className={`${selected === fullDate ? 'bg-[#191101]' : ''} p-2 rounded-xl`}>
         <Text
           className={`text-md font-semibold ${
-            selected === fullDate ? 'text-black' : 'text-zinc-300'
+            selected === fullDate ? 'text-white' : 'text-[#9f6c05]/50'
           }`}>
           {dayNumber}
         </Text>
@@ -40,20 +40,3 @@ const Date = ({ date, onSelectDate, selected, index }) => {
 };
 
 export default Date;
-
-const styles = {
-  card: `rounded-xl h-[90px] width-[80px] space-y-2`,
-  // card: {
-  //   // backgroundColor: '#eee',
-  //   borderRadius: 10,
-  //   borderColor: '#ddd',
-  //   padding: 10,
-  //   marginVertical: 10,
-  //   alignItems: 'center',
-  //   height: 90,
-  //   width: 80,
-  //   marginHorizontal: 5,
-  // },
-  big: `font-bold`,
-  medium: `text-md`,
-};

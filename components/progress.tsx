@@ -1,4 +1,3 @@
-import Constants from 'expo-constants';
 import * as React from 'react';
 import { StyleProp, Text, View, ViewStyle } from 'react-native';
 import Animated, {
@@ -36,19 +35,19 @@ type AnimatedDonutProps = {
 };
 
 function AnimatedDonut({
-                         width = _width,
-                         height = _height,
-                         radius = _radius,
-                         strokeColor = 'purple',
-                         strokeInactiveColor = 'red',
-                         strokeWidth = _strokeWidth,
-                         current = 2,
-                         max = 4,
-                         duration = 500,
-                         delay = 500,
-                         children,
-                         style,
-                       }: AnimatedDonutProps) {
+  width = _width,
+  height = _height,
+  radius = _radius,
+  strokeColor = 'purple',
+  strokeInactiveColor = 'red',
+  strokeWidth = _strokeWidth,
+  current = 2,
+  max = 4,
+  duration = 500,
+  delay = 500,
+  children,
+  style,
+}: AnimatedDonutProps) {
   const d = `
     M ${width / 2} 0
     H ${width - radius}
@@ -138,7 +137,7 @@ function AnimatedDonut({
 
 const _colors = {
   bg: '#232839',
-  inactive: '#e7e5e4',
+  inactive: '#fff',
   active: '#8716',
 };
 
