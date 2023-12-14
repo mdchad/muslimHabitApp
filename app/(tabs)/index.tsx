@@ -18,7 +18,7 @@ export default function TabOneScreen() {
   ];
 
   return (
-    <SafeAreaView className="flex-1 bg-[#fef4e0]">
+    <SafeAreaView className="flex-1 bg-[#fef4e0]/80">
       <View className={styles.container}>
         <View className={styles.header}>
           <View className="flex flex-row space-x-2 items-center">
