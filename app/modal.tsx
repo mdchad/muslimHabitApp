@@ -3,13 +3,13 @@ import { StatusBar } from 'expo-status-bar';
 import { FlatList, Platform, Pressable, Text, TouchableOpacity, View } from 'react-native';
 
 const list = [
-  { name: 'Solat', slug: 'solat' },
-  { name: 'Solat Khusyuk', slug: 'khusyuk' },
-  { name: 'Solat punctual', slug: 'punctual' },
-  { name: 'Solat at the mosque', slug: 'mosque' },
-  { name: 'Solat Rawatib', slug: 'rawatib' },
-  { name: 'Solat Dhuha', slug: 'dhuha' },
-  { name: 'Solat Tahajjud', slug: 'tahajjud' },
+  { name: 'Solat', slug: 'solat', category: 'solat' },
+  { name: 'Solat Khusyuk', slug: 'khusyuk', category: 'solat' },
+  { name: 'Solat punctual', slug: 'punctual', category: 'solat' },
+  { name: 'Solat at the mosque', slug: 'mosque', category: 'solat' },
+  { name: 'Solat Rawatib', slug: 'rawatib', category: 'solat' },
+  { name: 'Solat Dhuha', slug: 'dhuha', category: 'solat' },
+  { name: 'Solat Tahajjud', slug: 'tahajjud', category: 'solat' },
 ];
 
 export default function ModalScreen() {
@@ -24,14 +24,15 @@ export default function ModalScreen() {
         </Link>
       </View>
       <View className="mt-4">
-        <Text className="text-4xl font-bold mb-6">Pick a new one!</Text>
+        <Text className="text-4xl font-bold mb-6">Pick one!</Text>
+        {/*<Text>or create your own</Text>*/}
         <FlatList
           data={list}
           renderItem={({ item, index }) => (
             <TouchableOpacity
               className="bg-stone-200/40 p-4 mb-4 rounded-xl"
               onPress={() => router.push({ pathname: '/modal2', params: { slug: item.slug } })}>
-              <Text className="text-lg font-semibold">{item.name}</Text>
+              <Text className="text-md font-semibold">{item.name}</Text>
             </TouchableOpacity>
           )}
         />

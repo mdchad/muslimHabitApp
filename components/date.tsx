@@ -22,7 +22,7 @@ const Date = ({ date, onSelectDate, selected, index }) => {
       } h-[90px] width-[80px] space-y-1 items-center`}>
       <Text
         className={`font-semibold text-lg ${
-          selected === fullDate ? 'text-[#191101]' : 'text-[#9f6c05]/30'
+          selected === fullDate ? 'text-[#191101]' : 'text-neutral-500/40'
         }`}>
         {day}
       </Text>
@@ -30,7 +30,7 @@ const Date = ({ date, onSelectDate, selected, index }) => {
       <View className={`${selected === fullDate ? 'bg-[#191101]' : ''} p-2 rounded-xl`}>
         <Text
           className={`text-md font-semibold ${
-            selected === fullDate ? 'text-white' : 'text-[#9f6c05]/30'
+            selected === fullDate ? 'text-white' : 'text-neutral-500/40'
           }`}>
           {dayNumber}
         </Text>

@@ -1,5 +1,11 @@
 import { Tabs } from 'expo-router';
-import { BookOpenIcon, HomeIcon, LibraryBigIcon, PenSquareIcon, SettingsIcon } from "lucide-react-native";
+import {
+  BookOpenIcon,
+  HomeIcon,
+  LibraryBigIcon,
+  PenSquareIcon,
+  SettingsIcon,
+} from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
@@ -24,6 +30,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="discover"
         options={{
+          href: null,
           headerShown: false,
           title: 'Discover',
           tabBarIcon: ({ color }) => <LibraryBigIcon size={24} color={color} />,
@@ -34,6 +41,11 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: 'Journal',
+          tabBarBadge: 'Coming Soon',
+          tabBarBadgeStyle: {
+            fontSize: 10,
+            backgroundColor: '#e5e7eb',
+          },
           tabBarIcon: ({ color }) => <PenSquareIcon size={24} color={color} />,
         }}
       />

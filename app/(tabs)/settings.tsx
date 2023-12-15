@@ -5,7 +5,7 @@ import { ZapIcon } from "lucide-react-native";
 
 export default function SettingsScreen() {
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-seashell">
       <View className={styles.container}>
         <Link href="/paywall-modal" asChild>
           <TouchableOpacity className="p-4 rounded-xl bg-[#f4e6ff] flex flex-row items-center space-x-2">

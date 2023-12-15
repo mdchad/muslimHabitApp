@@ -137,8 +137,8 @@ function AnimatedDonut({
 
 const _colors = {
   bg: '#232839',
-  inactive: '#fff',
-  active: '#8716',
+  inactive: 'rgba(243, 176, 28, 0.4)',
+  active: '#78716c',
 };
 
 export default function Progress() {
@@ -163,7 +163,7 @@ export default function Progress() {
           alignItems: 'center',
           justifyContent: 'space-evenly',
         }}>
-        <Text className="text-xs font-bold text-center">{11}</Text>
+        <Text className="text-xs font-bold text-center">{7}</Text>
         <View
           style={{
             height: 2,
@@ -172,7 +172,7 @@ export default function Progress() {
             transform: [{ rotate: '-14deg' }],
           }}
         />
-        <Text className="text-[10px] font-bold text-center text-gray-500">{20}</Text>
+        <Text className="text-[10px] font-bold text-center text-gray-500">{9}</Text>
       </View>
     </AnimatedDonut>
   );
