@@ -137,7 +137,7 @@ function AnimatedDonut({
 
 const _colors = {
   bg: '#232839',
-  inactive: 'rgba(243, 176, 28, 0.4)',
+  inactive: '#fff',
   active: '#78716c',
 };
 
