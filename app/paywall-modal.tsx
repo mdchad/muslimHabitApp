@@ -12,7 +12,7 @@ export default function ModalScreen() {
   };
 
   return (
-    <ScrollView className="flex-1 bg-stone-100">
+    <ScrollView className="flex-1 bg-seashell">
       <View className="p-4">
         <View className="flex-row justify-between items-center mb-10">
           <Link href="../" asChild>
@@ -23,7 +23,7 @@ export default function ModalScreen() {
         </View>
         <View className="mb-4">
           <Text className="text-3xl font-bold">Unlock Everything</Text>
-          <Text className="text-lg">Don't just track habits</Text>
+          <Text className="text-lg text-neutral-700">Supercharge your tracking habit</Text>
         </View>
 
         <View style={styles1.container}>
@@ -37,8 +37,8 @@ export default function ModalScreen() {
                   <Text>{pack.product.title}</Text>
                   <Text style={styles1.desc}>{pack.product.description}</Text>
                 </View>
-                <View style={styles1.price}>
-                  <Text className="text-white font-bold">{pack.product.priceString}</Text>
+                <View className="border border-purple-500 rounded-xl bg-purple-100 px-2 justify-center">
+                  <Text className="text-purple-500 font-bold">{pack.product.priceString}</Text>
                 </View>
               </TouchableOpacity>
             ))}
@@ -74,6 +74,6 @@ const styles1 = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 10,
     paddingHorizontal: 8,
-    backgroundColor: '#739072',
+    backgroundColor: '',
   },
 });

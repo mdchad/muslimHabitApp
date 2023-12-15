@@ -6,7 +6,7 @@ export default function DiscoverScreen() {
   const routines = ['Morning routine', 'Getting started', 'After Work'];
 
   return (
-    <SafeAreaView className="flex-1">
+    <SafeAreaView className="flex-1 bg-seashell">
       <View className={styles.container}>
         <View className={styles.container2}>
           <Text className={styles.header}>Discover</Text>
@@ -20,7 +20,7 @@ export default function DiscoverScreen() {
             // onScroll={(e) => setScrollPosition(e.nativeEvent.contentOffset.x)}
             scrollEventThrottle={16}>
             {routines.map((routine, index) => (
-              <View key={index} className="flex items-center w-[150px] p-8 bg-stone-200 rounded-xl mr-4">
+              <View key={index} className="flex items-center w-[150px] p-8 bg-[#F1EFE6] rounded-xl mr-4">
                 <Text className="text-xl font-semibold">{routine}</Text>
               </View>
             ))}
@@ -43,5 +43,5 @@ const styles = {
   separator: `h-[1px] my-7 w-4/5 bg-gray-200`,
   header: `text-3xl font-bold mb-2`,
   title: `text-xl font-bold`,
-  description: `text-lg leading-5 text-gray-400`,
+  description: `text-lg leading-5 text-neutral-700`,
 };
