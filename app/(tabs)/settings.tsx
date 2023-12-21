@@ -16,13 +16,40 @@ export default function SettingsScreen() {
             </View>
           </TouchableOpacity>
         </Link>
+        <Link href="/modal2" asChild>
+          <TouchableOpacity className="p-4 rounded-xl bg-[#e1fae1] flex flex-row items-center space-x-2">
+            <ZapIcon size={30} color="#3dd167" />
+            <View>
+              <Text className="text-[#3dd167] font-bold text-xl">About us</Text>
+              <Text className="text-[#3dd167]">Amazing features to help you grow</Text>
+            </View>
+          </TouchableOpacity>
+        </Link>
+        <Link href="/modal2" asChild>
+          <TouchableOpacity className="p-4 rounded-xl bg-[#ffe6e6] flex flex-row items-center space-x-2">
+            <ZapIcon size={30} color="#d13d3d" />
+            <View>
+              <Text className="text-[#d13d3d] font-bold text-xl">About us</Text>
+              <Text className="text-[#d13d3d]">Amazing features to help you grow</Text>
+            </View>
+          </TouchableOpacity>
+        </Link>
+        <Link href="/modal2" asChild>
+          <TouchableOpacity className="p-4 rounded-xl bg-[#e6eaff] flex flex-row items-center space-x-2">
+            <ZapIcon size={30} color="#493dd1" />
+            <View>
+              <Text className="text-[#493dd1] font-bold text-xl">About us</Text>
+              <Text className="text-[#493dd1]">Amazing features to help you grow</Text>
+            </View>
+          </TouchableOpacity>
+        </Link>
       </View>
     </SafeAreaView>
   );
 }
 
 const styles = {
-  container: `my-6 mx-4 space-y-8`,
+  container: `my-6 mx-4 space-y-4`,
   container2: `space-y-4`,
   separator: `h-[1px] my-7 w-4/5 bg-gray-200`,
   header: `text-3xl font-bold mb-2`,

@@ -1,6 +1,7 @@
 import { Link } from 'expo-router';
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { PurchasesPackage } from 'react-native-purchases';
+import Svg, { Defs, Path } from 'react-native-svg';
 
 import { useRevenueCat } from './providers/RevenueCatProvider';
 

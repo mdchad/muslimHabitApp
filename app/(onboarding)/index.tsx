@@ -1,10 +1,13 @@
-
+import { MotiView, useAnimationState } from 'moti';
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Pressable, Text } from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming } from "react-native-reanimated";
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import BoxSVG from '../svg/box';
+
 const AnimatedBox = () => {
+  const [key, setKey] = useState(1);
   // Shared values for left and right animations
   const leftPosition = useSharedValue(-200); // Start off-screen to the left
   const rightPosition = useSharedValue(200); // Start off-screen to the right
@@ -39,6 +42,7 @@ const AnimatedBox = () => {
 
   // Function to reset and restart the animation
   const resetAnimation = () => {
+    setKey((prev) => prev + 1);
     // Reset shared values to initial state
     leftPosition.value = -200;
     rightPosition.value = 200;
@@ -54,20 +58,40 @@ const AnimatedBox = () => {
     startAnimation();
   }, []);
 
+  const motiLeftAnimate = {
+    from: { opacity: 0, left: -200, rotate: '20deg' },
+    animate: { opacity: 1, left: 0, rotate: '-10deg' },
+    transition: {
+      type: 'timing',
+      duration: 500,
+    },
+  };
+
+  const motiRightAnimate = {
+    from: { opacity: 0, right: -200, rotate: '45deg' },
+    animate: { opacity: 1, right: 0, rotate: '20deg' },
+    transition: {
+      type: 'timing',
+      duration: 500,
+    },
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
         {/* Boxes sliding in from the left */}
-        <Animated.View style={[leftAnimatedStyle]}>
-          <Animated.View style={[styles.box]} />
-          <Animated.View style={[styles.box]} />
-        </Animated.View>
+        <MotiView key={`top-${key}`} {...motiLeftAnimate}>
+          <BoxSVG />
+          {/*<Animated.View style={[styles.box]} />*/}
+          {/*<Animated.View style={[styles.box]} />*/}
+        </MotiView>
 
         {/* Boxes sliding in from the right */}
-        <Animated.View style={[rightAnimatedStyle]}>
-          <Animated.View style={[styles.box]} />
-          <Animated.View style={[styles.box]} />
-        </Animated.View>
+        <MotiView key={`bottom-${key}`} {...motiRightAnimate}>
+          <BoxSVG />
+          {/*<Animated.View style={[styles.box]} />*/}
+          {/*<Animated.View style={[styles.box]} />*/}
+        </MotiView>
       </View>
       <Pressable onPress={() => resetAnimation()}>
         <Text>Reset</Text>
@@ -79,7 +103,7 @@ const AnimatedBox = () => {
 const styles = StyleSheet.create({
   container: {
     // Layout styles for the container
-    flexDirection: 'row',
+    // flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
   },
