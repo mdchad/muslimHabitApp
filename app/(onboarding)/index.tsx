@@ -5,6 +5,7 @@ import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-na
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import BoxSVG from '../svg/box';
+import ArrowSVG from "../svg/arrow";
 
 const AnimatedBox = () => {
   const [key, setKey] = useState(1);
@@ -80,15 +81,16 @@ const AnimatedBox = () => {
     <SafeAreaView>
       <View style={styles.container}>
         {/* Boxes sliding in from the left */}
-        <MotiView key={`top-${key}`} {...motiLeftAnimate}>
-          <BoxSVG />
+        {/*<MotiView key={`top-${key}`} {...motiLeftAnimate}>*/}
+        {/*  <ArrowSVG key={`key-${key}`}/>*/}
+          <BoxSVG key={`key1-${key}`} />
           {/*<Animated.View style={[styles.box]} />*/}
           {/*<Animated.View style={[styles.box]} />*/}
-        </MotiView>
+        {/*</MotiView>*/}
 
         {/* Boxes sliding in from the right */}
         <MotiView key={`bottom-${key}`} {...motiRightAnimate}>
-          <BoxSVG />
+          {/*<BoxSVG />*/}
           {/*<Animated.View style={[styles.box]} />*/}
           {/*<Animated.View style={[styles.box]} />*/}
         </MotiView>
