@@ -17,11 +17,11 @@ export default function SettingsScreen() {
           </TouchableOpacity>
         </Link>
         <Link href="/modal2" asChild>
-          <TouchableOpacity className="p-4 rounded-xl bg-[#e1fae1] flex flex-row items-center space-x-2">
-            <ZapIcon size={30} color="#3dd167" />
+          <TouchableOpacity className="p-4 rounded-xl bg-[#dcf7e1] flex flex-row items-center space-x-2">
+            <ZapIcon size={30} color="#39963f" />
             <View>
-              <Text className="text-[#3dd167] font-bold text-xl">About us</Text>
-              <Text className="text-[#3dd167]">Amazing features to help you grow</Text>
+              <Text className="text-[#39963f] font-bold text-xl">About us</Text>
+              <Text className="text-[#39963f]">Amazing features to help you grow</Text>
             </View>
           </TouchableOpacity>
         </Link>
