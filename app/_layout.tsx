@@ -1,5 +1,4 @@
 import * as Application from 'expo-application';
-import Constants from 'expo-constants';
 import * as Crypto from 'expo-crypto';
 import { Platform } from 'expo-modules-core';
 import { Stack } from 'expo-router';
@@ -53,7 +52,7 @@ async function signUpWithEmail() {
 
 export default function RootLayout() {
   useEffect(() => {
-    signUpWithEmail();
+    // signUpWithEmail();
   }, []);
 
   return (

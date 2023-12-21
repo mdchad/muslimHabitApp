@@ -6,7 +6,8 @@
     "format": "eslint '**/*.{js,jsx,ts,tsx}' --fix && prettier '**/*.{js,jsx,ts,tsx,json}' --write",
     "ios": "expo run:ios",
     "start": "expo start",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "submit:ios": "eas build -p ios --auto-submit"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
