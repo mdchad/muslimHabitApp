@@ -137,16 +137,16 @@ function AnimatedDonut({
 
 const _colors = {
   bg: '#232839',
-  inactive: '#fff',
+  inactive: 'rgb(243, 176, 28)',
   active: '#78716c',
 };
 
-export default function Progress() {
+export default function Progress({ current, max }) {
   return (
     <AnimatedDonut
       key="item-#1"
-      current={36}
-      max={120}
+      current={current}
+      max={max}
       strokeColor={_colors.active}
       strokeInactiveColor={_colors.inactive}
       strokeWidth={5 / 1.8}
@@ -163,7 +163,7 @@ export default function Progress() {
           alignItems: 'center',
           justifyContent: 'space-evenly',
         }}>
-        <Text className="text-xs font-bold text-center">{7}</Text>
+        <Text className="text-xs font-bold text-center">{current}</Text>
         <View
           style={{
             height: 2,
@@ -172,7 +172,7 @@ export default function Progress() {
             transform: [{ rotate: '-14deg' }],
           }}
         />
-        <Text className="text-[10px] font-bold text-center text-gray-500">{9}</Text>
+        <Text className="text-[10px] font-bold text-center text-gray-500">{max}</Text>
       </View>
     </AnimatedDonut>
   );

@@ -31,6 +31,7 @@ function SortableList<T>({
   onAnimatedIndexChange,
   onDragEnd,
   backgroundItem,
+  className,
   ...rest
 }: SortableListProps<T>) {
   // Shared values for tracking scroll position, animated index, and scroll view reference
@@ -103,6 +104,7 @@ function SortableList<T>({
       {...rest}
       onScroll={onScroll}
       ref={scrollView}
+      className={className}
       contentContainerStyle={[
         rest.contentContainerStyle,
         {

@@ -1,9 +1,15 @@
-import { Link, useGlobalSearchParams } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { Platform, Pressable, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Link, router, useGlobalSearchParams } from "expo-router";
+import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useHabit } from "./providers/HabitProvider";
 
 export default function ModalScreen() {
   const params = useGlobalSearchParams();
+  const { setHabit } = useHabit()
+
+  function onSubmit() {
+    setHabit((prev) => [...prev, { name: params?.slug, interval: 'everyday' }])
+    router.push({ pathname: '/(tabs)/' })
+  }
 
   return (
     <ScrollView className="flex-1 bg-stone-100">
@@ -15,7 +21,7 @@ export default function ModalScreen() {
             </TouchableOpacity>
           </Link>
           <Text className="text-xl font-semibold">New Habit</Text>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={onSubmit}>
             <Text className="text-lg">Save</Text>
           </TouchableOpacity>
         </View>

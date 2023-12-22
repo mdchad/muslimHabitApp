@@ -6,6 +6,7 @@ import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 
 import { RevenueCatProvider } from './providers/RevenueCatProvider';
+import { HabitProvider } from "./providers/HabitProvider";
 // import { supabase } from '../utils/supabase';
 
 export const unstable_settings = {
@@ -57,16 +58,18 @@ export default function RootLayout() {
 
   return (
     <RevenueCatProvider>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        {/*<Stack.Screen name="(onboarding)" options={{ headerShown: false }} />*/}
-        <Stack.Screen name="modal" options={{ presentation: 'modal', headerShown: false }} />
-        <Stack.Screen name="modal2" options={{ presentation: 'modal', headerShown: false }} />
-        <Stack.Screen
-          name="paywall-modal"
-          options={{ presentation: 'modal', headerShown: false }}
-        />
-      </Stack>
+      <HabitProvider>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          {/*<Stack.Screen name="(onboarding)" options={{ headerShown: false }} />*/}
+          <Stack.Screen name="modal" options={{ presentation: 'modal', headerShown: false }} />
+          <Stack.Screen name="modal2" options={{ presentation: 'modal', headerShown: false }} />
+          <Stack.Screen
+            name="paywall-modal"
+            options={{ presentation: 'modal', headerShown: false }}
+          />
+        </Stack>
+      </HabitProvider>
     </RevenueCatProvider>
   );
 }

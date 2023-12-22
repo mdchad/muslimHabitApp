@@ -6,8 +6,8 @@ import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 
 // Define the type for information about each list item
 export type ItemInfo = {
-  title: string;
-  subtitle: string;
+  name: string;
+  interval: string;
   activeValues: boolean[];
   color: string;
   squareColor?: string;
@@ -40,39 +40,39 @@ export const ListItem: React.FC<ListItemProps> = ({
 
   // Render the ListItem component
   return (
-    <Animated.View style={[styles.container, style, rStyle]}>
+    <Animated.View style={[styles.container, style, rStyle]} className="rounded-xl shadow-sm">
       {/* Icon and Text Container */}
       <View style={styles.iconContainer}>
-        <View style={[styles.icon, { backgroundColor: item.color }]}>
-          <Text style={styles.iconText}>{item.textIcon}</Text>
-        </View>
+        {/*<View style={[styles.icon, { backgroundColor: item.color }]}>*/}
+          {/*<Text style={styles.iconText}>{item.textIcon}</Text>*/}
+        {/*</View>*/}
         <View style={styles.textContainer}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.subtitle}>{item.subtitle}</Text>
+          <Text style={styles.title} className="capitalize">{item.name}</Text>
+          <Text style={styles.subtitle} className="capitalize">{item.interval}</Text>
         </View>
       </View>
 
       {/* Status Indicator Container */}
-      <View style={styles.statusContainer}>
-        {/* Map through activeValues to render status items */}
-        {new Array(item.activeValues.length).fill(0).map((_, i) => (
-          <View
-            key={i}
-            style={[
-              styles.statusItem,
-              {
-                backgroundColor: item.squareColor ?? item.color,
-                opacity: item.activeValues[i] ? 1 : 0.6,
-                transform: [
-                  {
-                    scale: item.activeValues[i] ? 1 : 0.3,
-                  },
-                ],
-              },
-            ]}
-          />
-        ))}
-      </View>
+      {/*<View style={styles.statusContainer}>*/}
+      {/*  /!* Map through activeValues to render status items *!/*/}
+      {/*  {new Array(item.activeValues.length).fill(0).map((_, i) => (*/}
+      {/*    <View*/}
+      {/*      key={i}*/}
+      {/*      style={[*/}
+      {/*        styles.statusItem,*/}
+      {/*        {*/}
+      {/*          backgroundColor: item.squareColor ?? item.color,*/}
+      {/*          opacity: item.activeValues[i] ? 1 : 0.6,*/}
+      {/*          transform: [*/}
+      {/*            {*/}
+      {/*              scale: item.activeValues[i] ? 1 : 0.3,*/}
+      {/*            },*/}
+      {/*          ],*/}
+      {/*        },*/}
+      {/*      ]}*/}
+      {/*    />*/}
+      {/*  ))}*/}
+      {/*</View>*/}
     </Animated.View>
   );
 };
