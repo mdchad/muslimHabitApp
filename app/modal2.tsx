@@ -8,7 +8,7 @@ export default function ModalScreen() {
 
   function onSubmit() {
     setHabit((prev) => [...prev, { name: params?.slug, interval: 'everyday' }])
-    router.push({ pathname: '/(tabs)/' })
+    router.navigate({ pathname: '/(tabs)/' })
   }
 
   return (

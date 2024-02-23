@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 import { RevenueCatProvider } from './providers/RevenueCatProvider';
 import { HabitProvider } from "./providers/HabitProvider";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 // import { supabase } from '../utils/supabase';
 
 export const unstable_settings = {
@@ -57,19 +58,21 @@ export default function RootLayout() {
   }, []);
 
   return (
-    <RevenueCatProvider>
-      <HabitProvider>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          {/*<Stack.Screen name="(onboarding)" options={{ headerShown: false }} />*/}
-          <Stack.Screen name="modal" options={{ presentation: 'modal', headerShown: false }} />
-          <Stack.Screen name="modal2" options={{ presentation: 'modal', headerShown: false }} />
-          <Stack.Screen
-            name="paywall-modal"
-            options={{ presentation: 'modal', headerShown: false }}
-          />
-        </Stack>
-      </HabitProvider>
-    </RevenueCatProvider>
+    <GestureHandlerRootView style={{ flex: 1}}>
+      <RevenueCatProvider>
+        <HabitProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            {/*<Stack.Screen name="(onboarding)" options={{ headerShown: false }} />*/}
+            <Stack.Screen name="modal" options={{ presentation: 'modal', headerShown: false }} />
+            <Stack.Screen name="modal2" options={{ presentation: 'modal', headerShown: false }} />
+            <Stack.Screen
+              name="paywall-modal"
+              options={{ presentation: 'modal', headerShown: false }}
+            />
+          </Stack>
+        </HabitProvider>
+      </RevenueCatProvider>
+    </GestureHandlerRootView>
   );
 }
