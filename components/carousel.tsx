@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
-import { addDays, format, startOfToday } from 'date-fns';
-
-import Date from './date';
-import { Checkbox } from "./checkbox";
 
 const Carousel = ({ onSelectItem, selected }) => {
   const [items, setItems] = useState([
@@ -46,8 +42,7 @@ const Carousel = ({ onSelectItem, selected }) => {
               onPress={() => onSelectItem(item)}
               key={index}
               className={`h-56 w-32 rounded-2xl flex justify-center items-center ${item.bg}`}>
-              <Checkbox checked={true} onCheckedChange={onCheckedChange} />
-              {/*<Text className={`font-semibold text-2xl ${item.color}`}>{item.title}</Text>*/}
+              <Text className={`font-semibold text-2xl ${item.color}`}>{item.title}</Text>
               {/*<View style={{ height: 10 }} />*/}
               {/*<View className={`${selected === fullDate ? 'bg-[#191101]' : ''} p-2 rounded-xl`}>*/}
               {/*  <Text*/}
