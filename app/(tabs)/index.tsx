@@ -1,18 +1,25 @@
 import { format } from 'date-fns';
 import * as Haptics from 'expo-haptics';
 import { Link } from 'expo-router';
-import { PlusCircle } from 'lucide-react-native';
-import React, { useCallback, useState } from "react";
-import { FlatList, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from "react-native";
-import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
+import { CopyPlus, PlusSquare } from "lucide-react-native";
+import React, { useCallback, useState } from 'react';
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+} from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Calendar from '../../components/calendar';
 import Progress from '../../components/progress';
 import { useHabit } from '../providers/HabitProvider';
-import { ItemInfo, ListItem } from "../../components/listItem";
+import { ItemInfo, ListItem } from '../../components/listItem';
 import { SortableList } from '../../components/SortableList';
-import { Positions } from "../../components/SortableList/types";
-import { useSharedValue } from "react-native-reanimated";
+import { Positions } from '../../components/SortableList/types';
+import { useSharedValue } from 'react-native-reanimated';
 
 const PADDING = 6;
 const HEIGHT = 80;
@@ -52,23 +59,23 @@ export default function HomeScreen() {
   const currentActiveIndex = useSharedValue<number | null>(null);
 
   return (
-    <SafeAreaView className="flex-1 bg-seashell">
+    <SafeAreaView className="flex-1 bg-seashell-lite/40">
       <View className={styles.container}>
         <View className={styles.header}>
           <View className="flex flex-row space-x-2 items-center">
             <Text className={styles.title}>Today</Text>
-            <Progress current={1} max={habit.length || 1} />
+            {/*<Progress current={1} max={habit.length || 1} />*/}
           </View>
           <Link href="/modal" asChild>
             <TouchableOpacity
               onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}>
-              <PlusCircle color="black" size={28} />
+              <CopyPlus color="black" size={28} />
             </TouchableOpacity>
           </Link>
         </View>
-        <View className="mx-6">
-          <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
-        </View>
+        {/*<View className="mx-6">*/}
+        {/*  <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />*/}
+        {/*</View>*/}
         {habit.length ? (
           // <FlatList
           //   data={habit}
@@ -100,7 +107,7 @@ export default function HomeScreen() {
             //     ]}
             //   />
             // }
-            className="px-6"
+            className="px-6 pt-4"
             showsVerticalScrollIndicator={false}
             data={habit}
             listItemHeight={ITEM_HEIGHT}
@@ -114,7 +121,6 @@ export default function HomeScreen() {
                   style={{
                     height: HEIGHT,
                     margin: PADDING,
-                    backgroundColor: 'white',
                   }}
                   maxBorderRadius={MAX_BORDER_RADIUS}
                   index={index}
@@ -156,7 +162,6 @@ const styles1 = StyleSheet.create({
     margin: PADDING,
   },
 });
-
 
 const styles = {
   header: `flex flex-row justify-between items-center mt-4 mx-6`,

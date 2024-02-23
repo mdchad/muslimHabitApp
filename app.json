@@ -22,10 +22,10 @@
       "typedRoutes": true
     },
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/muslim-habit-icon-2.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/muslim-habit-splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

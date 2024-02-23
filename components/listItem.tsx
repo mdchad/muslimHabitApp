@@ -40,7 +40,7 @@ export const ListItem: React.FC<ListItemProps> = ({
 
   // Render the ListItem component
   return (
-    <Animated.View style={[styles.container, style, rStyle]} className="rounded-xl shadow-sm">
+    <Animated.View style={[styles.container, style, rStyle]} className="rounded-xl bg-white">
       {/* Icon and Text Container */}
       <View style={styles.iconContainer}>
         {/*<View style={[styles.icon, { backgroundColor: item.color }]}>*/}
@@ -48,7 +48,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         {/*</View>*/}
         <View style={styles.textContainer}>
           <Text style={styles.title} className="capitalize">{item.name}</Text>
-          <Text style={styles.subtitle} className="capitalize">{item.interval}</Text>
+          <Text className="font-semibold text-neutral-400 capitalize">{item.interval}</Text>
         </View>
       </View>
 
@@ -109,10 +109,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 5,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: 'gray',
   },
   statusContainer: {
     flex: 1,
